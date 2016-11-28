@@ -1,0 +1,396 @@
+//
+// Carousel
+// --------------------------------------------------
+
+
+// Wrapper for the slide container and indicators
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  > .item {
+    display: none;
+    position: relative;
+    .transition(.6s ease-in-out left);
+
+    // Account for jankitude on images
+    > img,
+    > a > img {
+      &:extend(.img-responsive);
+      line-height: 1;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      .transition-transform(~'0.6s ease-in-out');
+      .backface-visibility(~'hidden');
+      .perspective(1000px);
+
+      &.next,
+      &.active.right {
+        .translate3d(100%, 0, 0);
+        left: 0;
+      }
+      &.prev,
+      &.active.left {
+        .translate3d(-100%, 0, 0);
+        left: 0;
+      }
+      &.next.left,
+      &.prev.right,
+      &.active {
+        .translate3d(0, 0, 0);
+        left: 0;
+      }
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    left: 0;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    left: 100%;
+  }
+  > .prev {
+    left: -100%;
+  }
+  > .next.left,
+  > .prev.right {
+    left: 0;
+  }
+
+  > .active.left {
+    left: -100%;
+  }
+  > .active.right {
+    left: 100%;
+  }
+
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: @carousel-control-width;
+  .opacity(@carousel-control-opacity);
+  font-size: @carousel-control-font-size;
+  color: @carousel-control-color;
+  text-align: center;
+  text-shadow: @carousel-text-shadow;
+  background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
+  // We can't have this transition here because WebKit cancels the carousel
+  // animation if you trip this while in the middle of another animation.
+
+  // Set gradients for backgrounds
+  &.left {
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+  }
+  &.right {
+    left: auto;
+    right: 0;
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+  }
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: @carousel-control-color;
+    text-decoration: none;
+    .opacity(.9);
+  }
+
+  // Toggles
+  .icon-prev,
+  .icon-next,
+  .glyphicon-chevron-left,
+  .glyphicon-chevron-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 5;
+    display: inline-block;
+  }
+  .icon-prev,
+  .glyphicon-chevron-left {
+    left: 50%;
+    margin-left: -10px;
+  }
+  .icon-next,
+  .glyphicon-chevron-right {
+    right: 50%;
+    margin-right: -10px;
+  }
+  .icon-prev,
+  .icon-next {
+    width:  20px;
+    height: 20px;
+    line-height: 1;
+    font-family: serif;
+  }
+
+
+  .icon-prev {
+    &:before {
+      content: '\2039';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
+    }
+  }
+  .icon-next {
+    &:before {
+      content: '\203a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
+    }
+  }
+}
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    width:  10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border: 1px solid @carousel-indicator-border-color;
+    border-radius: 10px;
+    cursor: pointer;
+
+    // IE8-9 hack for event handling
+    //
+    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // `background-color`. We cannot use `filter` since that's not viewed as a
+    // background color by the browser. Thus, a hack is needed.
+    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+    //
+    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    // set alpha transparency for the best results possible.
+    background-color: #000 \9; // IE8
+    background-color: rgba(0,0,0,0); // IE9
+  }
+  .active {
+    margin: 0;
+    width:  12px;
+    height: 12px;
+    background-color: @carousel-indicator-active-bg;
+  }
+}
+
+// Optional captions
+// -----------------------------
+// Hidden by default for smaller viewports
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: @carousel-caption-color;
+  text-align: center;
+  text-shadow: @carousel-text-shadow;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
+  }
+}
+
+
+// Scale up controls for tablets and up
+@media screen and (min-width: @screen-sm-min) {
+
+  // Scale up the controls a smidge
+  .carousel-control {
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right,
+    .icon-prev,
+    .icon-next {
+      width: (@carousel-control-font-size * 1.5);
+      height: (@carousel-control-font-size * 1.5);
+      margin-top: (@carousel-control-font-size / -2);
+      font-size: (@carousel-control-font-size * 1.5);
+    }
+    .glyphicon-chevron-left,
+    .icon-prev {
+      margin-left: (@carousel-control-font-size / -2);
+    }
+    .glyphicon-chevron-right,
+    .icon-next {
+      margin-right: (@carousel-control-font-size / -2);
+    }
+  }
+
+  // Show and left align the captions
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+
+  // Move up the indicators
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+
+// Slide
+// -------------------------
+
+ul.horizontal-slide {
+    margin: 0;
+    padding: 0 20px 30px;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+ul.horizontal-slide li[class*="col"] {
+    display: inline-block;
+    float: none;
+}
+
+ul.horizontal-slide li[class*="col"]:first-child {
+    margin-left: 0;
+}
+
+.box-li{
+  display: inline-block;
+  float: none;
+  position: relative;
+  margin-right: -4px;
+  width: 165px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.fz-small.top-date{ padding-top: 30px; font-size: 14px; }
+.fz-small.top-date span{ font-weight: bold; font-size: 16px; }
+
+.text--large { height: 60px; margin-bottom: 0px; left: 18px; top: -14px;}
+.text--small { height: 33px; margin-bottom: 0px; left: 18px; top: -14px;}
+
+.text--destacado { top: 17px;}
+.text--destacado p{font-size:12px;}
+
+.margin-top--date { margin-top: 17px; margin-bottom: (@margin-base/2);}
+.margin-bottom--date { margin-top: (@margin-base/2); margin-bottom: 113px;}
+
+.margin-top-1{ margin-top: 50px;}
+.margin-bottom-1{ margin-bottom: 50px;}
+
+.box-li{
+  &.ya-paso{
+    a{ color: rgba(204, 204, 204, 0.75);
+      &:hover{text-decoration: none;}
+    }
+    p{color: rgba(204, 204, 204, 0.75);}
+  }
+  &.mas-eventos{
+    p.evento{color: #E80E8A;}
+  }
+  &.nota-destacada{
+    a{ color: #E80E89;
+      &:hover{text-decoration: none;}
+    }
+    p.evento{color: #E80E89;}
+    .circle-xsmall{border:2px solid #E80E89;}
+    .vertical-line, .vertical-line--large{border-left:2px solid #E80E89;}
+  }
+  a{ color: #333333;
+    &:hover{text-decoration: none;}
+  }
+  p{color: #333333;}
+}
+
+.box-li .vertical-line {
+  height: 35px;
+  margin-left: 3.5px;
+  border-left: 2px solid @gray-xlight;
+}
+.box-li .vertical-line--large {
+  height: 45px;
+  margin-left: 3.5px;
+  border-left: 2px solid @primary;
+}
+
+.box-li .circle-xsmall{
+  width: 10px;
+  height: 10px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid @gray-xlight;
+}
+
+.box-li:hover{
+  & .vertical-line{ border-left: 2px solid @primary; }
+  & .circle-xsmall{ border: 2px solid @primary;}
+}
+
+.nota-destacada .box-li__lines{
+  position: relative;
+  top: -66px;
+}
+
+.nota-destacada .text--destacado{
+  top: -40px;
+}
+
+.evento{ width: 148px; overflow: hidden; white-space: normal; height: auto; position: absolute; left: 0%; bottom: 0; margin-bottom: 0; text-align: left;}
+.evento-bottom{bottom:inherit; top:0; font-size:12px;}
+
+/* Let's get this party started */
+#scroll::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+
+/* Track */
+#scroll::-webkit-scrollbar-track {
+  border-bottom: 1px solid @gray-xlight;
+}
+
+/* Handle */
+#scroll::-webkit-scrollbar-thumb {
+    background: @primary;
+}
+#scroll::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(221,221,221,0.4);
+}

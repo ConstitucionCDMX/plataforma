@@ -1,0 +1,327 @@
+/* Custom select */
+/* Read the article: http://tympanus.net/codrops/2014/07/10/inspiration-for-custom-select-elements/ */
+/* Demo: http://tympanus.net/Development/SelectInspiration/ */
+/* GitHub: https://github.com/codrops/SelectInspiration */
+
+/* Custom select skin: fullscreen color picker (adjusted for fullscreen form) */
+
+
+div.cs-skin-boxes {
+    background: transparent;
+    font-size: 18px;
+    font-weight: 700;
+    z-index: 2000;
+    color: #524e4f;
+}
+
+@media (min-width: 768px){
+	div.cs-skin-boxes {font-size: 26px;}
+}
+
+.cs-skin-boxes > span {
+	background: #fff;
+    border: 2px solid #524e4f;
+}
+
+div.cs-skin-boxes:focus > span {
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+}
+
+.cs-skin-boxes > span::after,
+.cs-skin-boxes.cs-active > span::after {
+	top: auto;
+	-webkit-transform: none;
+	transform: none;
+}
+
+.cs-skin-boxes .cs-options {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	background: #eee;
+	font-size: 12px;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+	transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.cs-skin-boxes .cs-options .title {
+	width: 100%;
+	padding-top: 20px;
+	text-align: center;
+	background: #eeeeee;
+	color: #E80E8A;
+	font-size: 20px;
+	cursor: default;
+}
+
+.cs-skin-boxes .cs-options .title span{
+	line-height: 1;
+}
+
+.cs-skin-boxes.cs-active .cs-options {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+
+.cs-skin-boxes .cs-options ul {
+	height: 100%;
+	padding: 10px;
+	background: #eee;
+}
+
+.cs-skin-boxes .cs-options li {
+	width: 25%;
+	height: 70px;
+	float: left;
+	position: relative;
+	cursor: pointer;
+	border-radius: 14px;
+	overflow: hidden;
+	opacity: 0;
+	color: #fff;
+	border: 10px solid transparent;
+	background-color: #4A4A4A;
+	background-clip: padding-box;
+	-webkit-transform: scale3d(0.8,0.8,1);
+	transform: scale3d(0.8,0.8,1);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transition: background-color 0.3s ease-out;
+	-moz-transition: background-color 0.3s ease-out;
+	-ms-transition: background-color 0.3s ease-out;
+	-o-transition: background-color 0.3s ease-out;
+}
+@media (min-width: 0px) and (max-width: 479px) {
+	.cs-skin-boxes .cs-options li{ width: 100%; }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+	.cs-skin-boxes .cs-options li{ width: 50%; }
+}
+@media (min-width: 768px){
+	.cs-skin-boxes .cs-options li{ width: 33.333333%; }
+ }
+ @media (min-width: 1200px){
+	.cs-skin-boxes .cs-options li{ width: 25%; }
+ }
+  @media (min-width: 1200px){
+	.cs-skin-boxes .cs-options li{ width: 20%; }
+ }
+
+.cs-skin-boxes.cs-active .cs-options li {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+.cs-skin-boxes.cs-active .cs-options li:hover{
+	background-color: #E80E8A;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+
+.cs-skin-boxes .cs-options li.title:hover{ background-color: transparent; }
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(2) {
+	-webkit-transition-delay: 0.01s;
+	transition-delay: 0.01s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(3) {
+	-webkit-transition-delay: 0.02s;
+	transition-delay: 0.02s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(4) {
+	-webkit-transition-delay: 0.03s;
+	transition-delay: 0.03s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(5) {
+	-webkit-transition-delay: 0.04s;
+	transition-delay: 0.04s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(6) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(7) {
+	-webkit-transition-delay: 0.06s;
+	transition-delay: 0.06s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(8) {
+	-webkit-transition-delay: 0.07s;
+	transition-delay: 0.07s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(9) {
+	-webkit-transition-delay: 0.08s;
+	transition-delay: 0.08s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(10) {
+	-webkit-transition-delay: 0.09s;
+	transition-delay: 0.09s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(11) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(12) {
+	-webkit-transition-delay: 0.11s;
+	transition-delay: 0.11s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(13) {
+	-webkit-transition-delay: 0.12s;
+	transition-delay: 0.12s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(14) {
+	-webkit-transition-delay: 0.13s;
+	transition-delay: 0.13s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(15) {
+	-webkit-transition-delay: 0.14s;
+	transition-delay: 0.14s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(16) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(17) {
+	-webkit-transition-delay: 0.16s;
+	transition-delay: 0.16s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(18) {
+	-webkit-transition-delay: 0.17s;
+	transition-delay: 0.17s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(19) {
+	-webkit-transition-delay: 0.18s;
+	transition-delay: 0.18s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(20) {
+	-webkit-transition-delay: 0.19s;
+	transition-delay: 0.19s;
+}
+
+.cs-skin-boxes .cs-options li.cs-selected::after {
+	content: '\2714';
+	color: rgba(0,0,0,0.1);
+	position: absolute;
+	font-size: 2em;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0) translate3d(0,-1em,0);
+	transform: translate3d(-50%,-50%,0) translate3d(0,-1em,0);
+}
+
+.cs-skin-boxes .cs-options li.cs-selected span::after {
+	content: '';
+}
+
+@media screen and (max-width: 30em) {
+	.cs-skin-boxes .cs-options li.cs-selected::after {
+		left: 90%;
+		color: #e80e8a;
+		-webkit-transform: translate3d(-50%,-50%,0);
+		transform: translate3d(-50%,-50%,0);
+	}
+}
+
+
+.cs-skin-boxes .cs-options span {
+	width: 100%;
+	position: absolute; bottom: 0;
+	line-height: 2em;
+	text-align: center; text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.cs-skin-boxes .cs-options li span:hover,
+.cs-skin-boxes li.cs-focus span,
+.cs-skin-boxes li.cs-selected span {
+	color: #fff;
+}
+
+.cs-skin-boxes .cs-options .title span:hover {
+	color: #E80E8A;
+	cursor: default;
+}
+
+.btn-skin-boxes{
+	opacity: 0;
+	width: 100%;
+	margin-bottom: 5px;
+	border: 2px solid #999;
+    text-transform: uppercase;
+    font-family: "Alegreya Sans",sans-serif;
+    color: #4a4a4a;
+    font-weight: bold;
+    -webkit-transition: opacity 1s;
+	transition: opacity 1s;
+	transition-delay: opacity 0.8s !important;
+	-webkit-transition: background-color 0.3s ease-out;
+	-moz-transition: background-color 0.3s ease-out;
+	-ms-transition: background-color 0.3s ease-out;
+	-o-transition: background-color 0.3s ease-out;
+}
+#js-grandes-retos.fs-current .btn-skin-boxes {
+	opacity: 1;
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+	transition-delay: 0.8s !important;
+}
+
+@media screen and (min-width: 468px){
+	.btn-skin-boxes{ width: 49%; }
+}
+
+@media screen and (min-width: 768px){
+	.btn-skin-boxes{ width: 32%; }
+}
+
+.btn-skin-boxes:hover{
+	background-color: #999;
+	color: #fff;
+}
+
+.btn-skin-boxes.active {
+    background-color: #e80e8a;
+    color: #fff;
+ }
+#counter-vision, #counter-tuviste, #counter-imaginas{
+ 	opacity: 0;
+	webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+	transition-delay: 0.2s !important;
+ }
+
+.fs-current #counter-vision,
+.fs-current #counter-tuviste,
+.fs-current #counter-imaginas{
+ 	opacity: 1;
+	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+	transition-delay: 0.8s !important;
+
+ }

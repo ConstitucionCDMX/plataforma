@@ -1,0 +1,1 @@
+<?php insert_preguntas();

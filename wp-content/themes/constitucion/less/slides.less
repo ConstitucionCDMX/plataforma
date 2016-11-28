@@ -1,0 +1,282 @@
+// Slides style
+// --------------------------------------------------
+
+
+/* ------ FlEXSLIDER ------*/
+
+ol.flex-control-nav.flex-control-paging{
+    .absolute;
+    .width-100;
+    bottom: 6px;
+    display: block;
+    margin-left: auto; margin-right: auto; margin-bottom: 0;
+    text-align: center;
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+ol.flex-control-nav.flex-control-paging li{
+    display:inline;
+}
+
+ol.flex-control-nav.flex-control-paging li a.flex-active{
+    background-color: #fff;
+}
+
+ol.flex-control-nav.flex-control-paging li a {
+    .box-shadow(0 5px 5px rgba(0,0,0,.3));
+    text-indent: -9999px;
+    overflow: hidden;
+    border: 1px solid @light;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 5px;
+    width: 8px;
+    height: 8px;
+    cursor: auto;
+    @media (min-width: @screen-sm){
+        margin: 8px;
+        width: 10px;
+        height: 10px;
+    }
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: @light;
+    }
+}
+
+ul.flex-direction-nav{
+    .absolute;
+    .width-100;
+    bottom: 45%;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+
+a.flex-prev{
+    z-index:100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5%;
+    width: 30px;
+    background-image: url('icons/prev.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+a.flex-next{
+    z-index:1050;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5%;
+    width: 30px;
+    background-image: url('icons/next.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+ul.slides{padding-left:0;}
+
+ul.slides li img{
+    .width-100;
+}
+
+
+
+/* ------ SLICK SLIDER ------*/
+
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+
+.slick-arrow{
+    .hidden;
+}
+
+button.slick-prev.slick-arrow{
+    left: 5%;
+    background-image: url('icons/prev.png');
+
+}
+
+button.slick-next.slick-arrow{
+    right: 5%;
+    background-image: url('icons/next.png');
+}
+
+
+ul.slick-dots{
+    .width-100;
+    .text-center;
+    position: relative;
+    bottom: 0px;
+    padding-left: 0px;
+    @media (min-width: @screen-sm){ padding-top: 15px; padding-bottom: 15px;}
+    background-color: @gray;
+}
+
+ul.slick-dots li{
+    display: inline;
+}
+
+
+ul.slick-dots li{
+    .box-shadow(0 5px 5px rgba(0,0,0,.3));
+    text-indent: -9999px;
+    overflow: hidden;
+    border: 1px solid @light;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 5px;
+    width: 8px;
+    height: 8px;
+    cursor: auto;
+    margin-top: 10px;
+    @media (min-width: @screen-sm){
+        margin: 8px;
+        width: 10px;
+        height: 10px;
+    }
+
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+        background-color: @light;
+    }
+}
+
+ul.slick-dots li.slick-active{
+    background-color: @light;
+}

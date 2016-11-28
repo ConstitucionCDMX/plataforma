@@ -1,0 +1,32 @@
+¿En dónde vives?,1,select,0,1,0
+¿En qué delegación?,1,select,1,1,0
+¿En qué colonia?,1,select,1,1,0
+¿En qué municipio?,1,select,1,1,0
+¿En qué estado?,1,select,1,1,0
+¿En qué país?,1,select,1,1,0
+Género,2,radio,0,1,0
+Edad,3,text,0,1,0
+¿A qué te dedicas?,4,textarea,0,1,0
+¿Trabajas?,5,radio,0,1,0
+¿Dónde trabajas?,5,select,0,1,0
+¿En qué delegación trabajas?,5,select,1,1,0
+¿En qué colonia trabajas?,5,select,1,1,0
+¿En qué municipio trabajas?,5,select,1,1,0
+¿En qué estado trabajas?,5,select,1,1,0
+¿En qué país trabajas?,5,select,1,1,0
+¿Estudias?,6,select,0,1,0
+¿Dónde estudias?,5,select,0,1,0
+¿En qué delegación estudias?,6,select,1,1,0
+¿En qué colonia estudias?,6,select,1,1,0
+¿En qué municipio estudias?,6,select,1,1,0
+¿En qué estado estudias?,6,select,1,1,0
+¿En qué país estudias?,6,select,1,1,0
+¿Naciste en la CDMX?,7,radio,0,1,0
+¿Cuáles son las tres primeras palabras que te llegan a la mente cuando piensas en la Ciudad de México?,8,input,0,1,0
+Si pensaras en los grandes retos de esta Ciudad ¿cuáles son los primeros cuatro que te llegan a la mente?,9,radio,0,1,0
+¿Qué otro reto tienes en mente?,9,textarea,1,1,0
+¿Cómo te imaginas la CDMX ideal* en 20 años?,10,textarea,0,1,140
+Pensando en esta visión* ¿cuáles pensarías que son los tres obstáculos principales para que se haga realidad?,11,input,0,1,0
+Imagina que es el año 2036. Tu visión se hizo realidad ¿Qué tuvo que hacer el gobierno para que esto sucediera?,12,textarea,0,1,140
+¿Y qué tuviste que hacer tú? ,13,textarea,0,1,140
+Si pensaras en las tres cosas más valiosas de la CDMX que deben ser protegidas o potenciadas ¿Qué palabras te vienen a la mente?,14,input,0,1,0
